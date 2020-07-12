@@ -1,9 +1,25 @@
 <header>
-    <h1>{{title}}</h1>
 
-    <div>
-        <a href="/">Weather</a>
-        <a href="/help">Help</a>
-        <a href="/about">About</a>
+    <div class="main">
+        <div class="logo">
+            <img src="/img/earth.jpg" alt="Weather">
+        </div>
+        <ul>
+        <li class="active"><a href="/">Weather</a></li>
+        <li><a href="/help">Help</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
     </div>
+        <div class="title">
+           <h2>{{title}}</h2>
+        </div>
+        <div class="buttonform">
+            <p>Use this site to get your weather!</p>
+            <form>
+                <input placeholder="Location">
+                <button class="btn">Search</button>
+            </form>
+        </div>
+        <p class="res" id="message-1"></p>
+        <p class="res" id="message-2"></p>
 </header>

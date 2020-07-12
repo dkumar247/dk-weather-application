@@ -5,6 +5,7 @@ const weatherForm = document.querySelector('form')
 const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
+const headee = document.querySelector('header')
 
 weatherForm.addEventListener('submit', (e) => {
     e.preventDefault()      ///to prevent from page refresh
@@ -21,10 +22,33 @@ weatherForm.addEventListener('submit', (e) => {
                 messageOne.textContent = data.error
             }
             else{
-                console.log('Forecast:', data.forecast)
-                console.log('Location:', data.location)
-                messageOne.textContent = data.forecast
-                messageTwo.textContent = data.location
+                let dataForecast = data.forecast;
+                let dataLoc = data.location;
+
+                if(dataForecast.toLowerCase().includes('rain') || dataForecast.toLowerCase().includes('shower') || dataForecast.toLowerCase().includes('cloud')) {
+                    headee.style.animationDuration="1s"
+                    headee.style.animation="boom"
+                    headee.style.backgroundImage="linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../img/rainy.jpg)"
+                }
+                else
+                if(dataForecast.toLowerCase().includes('snow') || dataForecast.toLowerCase().includes('frost') || dataForecast.toLowerCase().includes('chill')) {
+                    headee.style.animationDuration="1s"
+                    headee.style.animationName="boom"
+                    headee.style.backgroundImage="linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../img/snow.jpg)"
+                }
+                else
+                if(dataForecast.toLowerCase().includes('spring') || dataForecast.toLowerCase().includes('autumn') || dataForecast.toLowerCase().includes('blossom')) {
+                    headee.style.animation="boom 1s 2"
+                    headee.style.backgroundImage="linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../img/spring.jpg)"
+                }
+                else{
+                    headee.style.animation="boom 1s 2"
+                    headee.style.backgroundImage="linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../img/sunny.jpg)"
+                }
+                console.log('Forecast:', dataForecast)
+                console.log('Location:', dataLoc)
+                messageOne.textContent = dataForecast
+                messageTwo.textContent = dataLoc
             }
         })
     })
