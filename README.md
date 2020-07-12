@@ -2,7 +2,7 @@ weather-app-and-more
 ============
 This is a node.js weather application powered by Express and WeatherStack API that provides the weather for any specific place provided.
 
-![Weather App]((https://imgur.com/uI3N77S))
+![weather](https://user-images.githubusercontent.com/42008956/87247395-3bb09c00-c471-11ea-8f16-6c0f1b115c41.PNG)
 ---
 
 ## Features
