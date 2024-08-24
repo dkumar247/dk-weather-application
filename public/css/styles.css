@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Century Gothic;
@@ -7,33 +7,36 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  /* browser height*/
+    min-height: 100vh;
+    /* browser height*/
 }
 
 .main-content {
     flex-grow: 1;
 }
 
-header{
-    background-image: linear-gradient(to top, rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(../img/sunny.jpg);
+header {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(../img/sunny.jpg);
     height: 100vh;
     background-size: cover;
     background-position: center;
     animation-name: boom;
     animation-duration: 1s;
+    transition: background-image 0.5s ease-in-out;
+    /* Add this line */
 }
 
-ul{
+ul {
     float: right;
     list-style-type: none;
     margin-top: 25px;
 }
 
-ul li{
+ul li {
     display: inline-block;
 }
 
-ul li a{
+ul li a {
     text-decoration: none;
     color: #fff;
     padding: 5px 20px;
@@ -41,17 +44,17 @@ ul li a{
     transition: 0.6s ease;
 }
 
-ul li a:hover{
+ul li a:hover {
     background-color: #fff;
     color: #000;
 }
 
-ul li.active a{
+ul li.active a {
     background-color: #fff;
     color: #000;
 }
 
-.logo img{
+.logo img {
     float: left;
     width: 60px;
     height: auto;
@@ -60,107 +63,162 @@ ul li.active a{
     animation-name: example;
     animation-duration: 1s;
     animation-iteration-count: infinite;
-    animation-direction: alternate; /*or: normal*/
-    animation-timing-function: ease-out; /*or: ease, ease-in, ease-in-out, linear, cubic-bezier(x1, y1, x2, y2)*/
-    /* animation-fill-mode: forwards; or: backwards, both, none */
-    /* animation-delay: 2s; or: Xms */
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
 }
 
-.main{
+.main {
     max-width: 1200px;
     margin: auto;
-    /* transform: rotate(20deg); */
-    /* transform: skew(20deg, 10deg); */
 }
 
-.title{
+.title {
     position: absolute;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.title h2{
+.title h2 {
     color: #fff;
     font-size: 55px;
+    text-align: center;
+    /* Ensure text is centered */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Stronger shadow for better readability */
+
 }
 
-.buttonform{
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.btn{
+.btn {
     cursor: pointer;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
+    /* Make the border slightly thicker */
     padding: 10px 30px;
     color: #fff;
     background-color: transparent;
     text-decoration: none;
-    transition: 0.6s ease;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    /* Add rounded corners */
 }
 
-.btn:hover{
+.btn:hover {
     background-color: #fff;
     color: #000;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    /* Add a subtle glow on hover */
 }
 
 input {
-    border: 1px solid #cccccc;
-    padding: 10px 30px;
-    width: 200px;
-    /* position: absolute; */
+    border: 2px solid #fff;
+    /* Thicker border for better visibility */
+    padding: 10px 20px;
+    width: 250px;
+    /* Slightly wider input field */
+    border-radius: 5px;
+    /* Add rounded corners */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Add a subtle background color */
+    color: #fff;
+    /* Text color */
+    transition: all 0.3s ease;
+    /* Smooth transition on focus */
+    user-select: auto;
+    /* Allow text selection */
+    -webkit-user-select: auto;
+    /* Ensure compatibility with WebKit browsers */
 }
 
+input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Change background on focus */
+    outline: none;
+    /* Remove default outline */
+    border-color: #aaa;
+    /* Change border color on focus */
+}
 
 footer {
-    /* background-color: ; */
     color: #888888;
-    /* border-top: 1px solid #eeeeee; */
-    margin-top: 1px;
-    padding: 0.5px 0;
+    padding: 20px 0;
+    /* Increase padding */
     background-color: #000;
+    text-align: center;
+    /* Center the text */
+    border-top: 1px solid #555;
+    /* Add a subtle border on top */
 }
 
-p{
+
+p {
     /* display: inline-block;  */
     color: #fff;
     font-size: 20px;
     padding: 10px 30px;
 }
 
-.buttonform{
-    position: absolute;
-    /* max-width: 700px; */
-    margin: auto;
+.buttonform {
+    position: relative;
+    /* Position relative to its normal flow */
+    top: 75vh;
+    /* Move the form down 75% of the viewport height */
+    transform: translateY(-75%);
+    /* Adjust to account for the 75% top shift */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center the form and response horizontally */
+    margin-bottom: 20px;
 }
 
-.res{
+.res {
     color: #fff;
     font-size: 20px;
     padding: 10px 30px;
-    position: relative;
-    /* left: 100px; */
+    margin-top: 20px;
     text-align: center;
-    top: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    display: inline-block;
+    width: fit-content;
+    /* Only take up as much space as necessary */
 }
+
 
 @keyframes example {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
 }
+
 @keyframes boom {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .title h2 {
+        font-size: 40px;
+        /* Adjust font size for smaller screens */
+    }
+
+    .btn {
+        padding: 8px 20px;
+        /* Adjust padding for smaller screens */
+    }
+
+    input {
+        width: 180px;
+        /* Adjust input width for smaller screens */
     }
 }
 

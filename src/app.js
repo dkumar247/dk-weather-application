@@ -1,8 +1,9 @@
-const path = require('path')
-const express = require('express')
-const hbs = require('hbs')
-const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
+import path from 'path';
+import { fileURLToPath } from 'url';
+import express from 'express';
+import hbs from 'hbs';
+import { geocode } from './utils/geocode.js';
+import { forecast } from './utils/forecast.js';
 const log = console.log
 const port = process.env.PORT || 3000
 
@@ -11,12 +12,15 @@ const port = process.env.PORT || 3000
 const app = express()
 
 // Define paths for Express config
+// Convert `import.meta.url` to a file path
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
 // Setup handlebars engine and views location
-app.set('view engine', 'hbs')  
+app.set('view engine', 'hbs')
 app.set('views', viewsPath)             //Handle Bars
 hbs.registerPartials(partialsPath)
 
@@ -30,8 +34,8 @@ app.get('', (req, res) => {
     })
 })
 
-app.get('/about',(req, res) => {
-    res.render('about',{
+app.get('/about', (req, res) => {
+    res.render('about', {
         title: 'ABOUT',
         creator: 'Deepanshu Kumar'
     })
@@ -57,20 +61,20 @@ app.get('/help', (req, res) => {
 // })
 
 app.get('/weather', (req, res) => {
-    if(!req.query.address){
+    if (!req.query.address) {
         return res.send({
             error: 'Please enter an address string location!'
         })
     }
-    geocode(req.query.address, (error, { longitude, latitude, location } = {})=>{
-        if(error){
+    geocode(req.query.address, (error, { longitude, latitude, location } = {}) => {
+        if (error) {
             return res.send({
                 error: error
             })
         }
-    
+
         forecast(latitude, longitude, (error, forecastData) => {
-            if(error){
+            if (error) {
                 return res.send({
                     error: error        //use shorthand if need {error}
                 })
@@ -80,8 +84,8 @@ app.get('/weather', (req, res) => {
                 location: location,
                 address: req.query.address
             })
-          })
-    
+        })
+
     })
 })
 
@@ -91,7 +95,7 @@ app.get('/weather', (req, res) => {
 // })
 
 app.get('/help/*', (req, res) => {
-    res.render('error',{
+    res.render('error', {
         title: '404',
         errorMsg: 'Help article not found!',
         creator: 'Deepanshu Kumar'
@@ -99,7 +103,7 @@ app.get('/help/*', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.render('error',{
+    res.render('error', {
         title: '404',
         errorMsg: 'Page not found!',
         creator: 'Deepanshu Kumar'

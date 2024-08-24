@@ -5,21 +5,21 @@
             <img src="/img/earth.jpg" alt="Weather">
         </div>
         <ul>
-        <li class="active"><a href="/">Weather</a></li>
-        <li><a href="/help">Help</a></li>
-        <li><a href="/about">About</a></li>
-    </ul>
+            <li class="active"><a href="/">Weather</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
     </div>
-        <div class="title">
-           <h2>{{title}}</h2>
-        </div>
-        <div class="buttonform">
-            <p>Use this site to get your weather!</p>
-            <form>
-                <input placeholder="Location">
-                <button class="btn">Search</button>
-            </form>
-        </div>
-        <p class="res" id="message-1"></p>
-        <p class="res" id="message-2"></p>
+    <div class="title">
+        <h2>{{title}}</h2>
+    </div>
+
+    <div class="buttonform">
+        <form>
+            <input type="text" id="location" placeholder="Enter location">
+            <button class="btn" type="submit">Search</button>
+        </form>
+        <div class="res" id="weather-result"></div>
+    </div>
+
 </header>
