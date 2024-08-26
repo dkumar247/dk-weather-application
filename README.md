@@ -27,4 +27,4 @@ Once the dependencies are installed, you can run  `npm run dev` to start the app
 
 ---
 
->You can check out the deployed version [here](https://weather-and-more.herokuapp.com/)
+>You can check out the deployed version [here](https://weatherandmore.onrender.com/)
