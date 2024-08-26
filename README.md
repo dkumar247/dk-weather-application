@@ -1,8 +1,8 @@
-weather-app-and-more
+![image](https://github.com/user-attachments/assets/a044063c-eb51-4eba-b382-cd2f8353a8c7)weather-app-and-more
 ============
 This is a node.js weather application powered by Express and WeatherStack API that provides the weather for any specific place provided.
 
-![weather](https://user-images.githubusercontent.com/42008956/87247395-3bb09c00-c471-11ea-8f16-6c0f1b115c41.PNG)
+![weather](https://github.com/dkumar247/image-repo/blob/13495e0a4dd536d54e9210666ac64c83573abec5/WeatherAndMoreScreen.png)
 ---
 
 ## Features
